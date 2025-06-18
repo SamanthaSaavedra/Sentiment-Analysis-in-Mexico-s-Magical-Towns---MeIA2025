@@ -20,7 +20,8 @@
               "ms-toolsai.jupyter"
           ],
           "settings": {
-            "code-runner.runInTerminal": true
+            "code-runner.runInTerminal": true,
+            "python.defaultInterpreterPath": "/opt/venv/bin/python"
           }
     }
   },

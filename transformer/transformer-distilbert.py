@@ -1,12 +1,11 @@
-import pandas as pd
-import numpy as np
-from datasets import Dataset
-from transformers import AutoTokenizer
-from transformers import AutoModelForSequenceClassification
-from transformers import TrainingArguments, Trainer
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import precision_recall_fscore_support, accuracy_score
-
+import pandas as pd                                                                             # type: ignore
+import numpy as np                                                                              # type: ignore
+from datasets import Dataset                                                                    # type: ignore
+from transformers import AutoTokenizer                                                          # type: ignore
+from transformers import AutoModelForSequenceClassification                                     # type: ignore
+from transformers import TrainingArguments, Trainer                                             # type: ignore
+from sklearn.metrics import accuracy_score                                                      # type: ignore
+from sklearn.metrics import precision_recall_fscore_support, accuracy_score                     # type: ignore
 
 df = pd.read_excel("dataset/MeIA_2025_train.xlsx")
 df["labels"] = df["Polarity"]-1
@@ -15,7 +14,6 @@ df = df[["Review", "labels"]]
 df["labels"] = df["labels"].astype(int)
 
 dataset = Dataset.from_pandas(df)
-
 
 checkpoint = "distilbert/distilbert-base-multilingual-cased"
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
