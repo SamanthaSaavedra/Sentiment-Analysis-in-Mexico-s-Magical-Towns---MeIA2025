@@ -80,4 +80,11 @@ trainer = Trainer(
     compute_metrics=compute_metrics
 )
 
+import torch
+print("CUDA disponible?", torch.cuda.is_available())
+param = next(trainer.model.parameters())
+print("param.is_cuda:", param.is_cuda)
+print("param.device:", param.device)
+
 trainer.train()
+
